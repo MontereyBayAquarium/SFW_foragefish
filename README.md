@@ -15,8 +15,11 @@ Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium
 *Marjoleine M.H. Roos, Lead Author, Quantitative Marine Ecologist*
 
 *Santi Roberts, Monterey Bay Aquarium*
+
 *Sam Wilding, Monterey Bay Aquarium*
+
 *Andre Boustany, Monterey Bay Aquarium*
+
 *Rachel Zuercher, Monterey Bay Aquarium*
 
 **Contact**: rzuercher@mbayaq.org
