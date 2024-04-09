@@ -1,6 +1,3 @@
-
-# SFW_foragefish
-
 <!-- badges: start -->
 <!-- badges: end -->
 
@@ -8,7 +5,7 @@
 
 This repository includes data and analysis scripts for the white paper:
 
-Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium Seafood Watch. [ADD URL ONCE AVAILABLE]
+**Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium Seafood Watch.** [ADD URL ONCE AVAILABLE]
 
 ---
 ## Collaborators:
@@ -22,7 +19,6 @@ Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium
 
 *Rachel Zuercher, Monterey Bay Aquarium*
 
-**Contact**: rzuercher@mbayaq.org
 
 ---
 ## Description:
