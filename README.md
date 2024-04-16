@@ -35,10 +35,3 @@ and the following information for each: B, QB, ED, ED source, group name and gro
 
 `index_calculations.R` -- R code to calculate connectance, SURF mass and SURF energy indices
 
-
-## Repository best practices:
-Project contributors are internal at this point in time. We ask that contributors adhere to the following best practices when working in the repository:
-
-1. Use lower case for all folders and file names.
-2. Use underscores for spaces (don't use hyphens or spaces).
-
