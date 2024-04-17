@@ -22,7 +22,7 @@ This repository includes data and analysis scripts for the white paper:
 
 ---
 ## Description:
-[Santi to update]
+[Add Executive Summary here once report is finalized]
 
 --- 
 ## In the repository:
