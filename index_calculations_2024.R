@@ -6,11 +6,15 @@
 # LOAD PACKAGES, PACKAGES MAY NEED TO BE INSTALLED FIRST
 library(openxlsx) 
 library(readxl)
+library(here)
 
 #======= IMPORT DATA ==========================================================
 
+# SET DIRECTORIES AND LOAD DATA
+directory <- here::here("data","raw")
+output_folder <- here::here("data","output")
 
-diet.mat=read_excel("diet.xlsx")                                               # IMPORT AND CREATE DATA FRAME FROM DIET MATRIX
+diet.mat=read_excel(file.path(directory, "diet.xlsx"))                         # IMPORT AND CREATE DATA FRAME FROM DIET MATRIX
 group.data=read_excel("groupdata.xlsx")                                        # IMPORT AND CREATE TABLE FROM GROUP PARAMETERS AS USED IN THE ECOPATH MODEL (FUNCTIONAL GROUP NAMES, BIOMASS (B), AND CONSUMPTION/BIOMASS (QB)) IN COMBINATION WITH DIET DATA
 n.groups=dim(group.data)[1]                                                    # SET NUMBER OF GROUPS
 
