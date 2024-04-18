@@ -12,10 +12,10 @@ library(here)
 
 # SET DIRECTORIES AND LOAD DATA
 directory <- here::here("data","raw")
-output_folder <- here::here("data","output")
+output <- here::here("data","output")
 
 diet.mat=read_excel(file.path(directory, "diet.xlsx"))                         # IMPORT AND CREATE DATA FRAME FROM DIET MATRIX
-group.data=read_excel("groupdata.xlsx")                                        # IMPORT AND CREATE TABLE FROM GROUP PARAMETERS AS USED IN THE ECOPATH MODEL (FUNCTIONAL GROUP NAMES, BIOMASS (B), AND CONSUMPTION/BIOMASS (QB)) IN COMBINATION WITH DIET DATA
+group.data=read_excel(file.path(directory, "groupdata.xlsx"))                  # IMPORT AND CREATE TABLE FROM GROUP PARAMETERS AS USED IN THE ECOPATH MODEL (FUNCTIONAL GROUP NAMES, BIOMASS (B), AND CONSUMPTION/BIOMASS (QB)) IN COMBINATION WITH DIET DATA
 n.groups=dim(group.data)[1]                                                    # SET NUMBER OF GROUPS
 
 
@@ -156,8 +156,8 @@ list_of_datasets <- list("Table A - Model Parameters" = group.data,
 
 
 # *** MANUALLY ADJUST FILE NAMES ***
-write.xlsx(indices, file = "Japan - Todarodes_indices.xlsx")                   # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN DISAGGREGATED MODEL
-write.xlsx(list_of_datasets, file = "Japan - Todarodes.xlsx")                  # WRITE EXCEL FILE OF THE COMPLETE WORKBOOK INCLUDING THE SEPERATE DATASHEETS
+write.xlsx(indices, file.path(output, "Japan - Todarodes_indices.xlsx"))       # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN DISAGGREGATED MODEL
+write.xlsx(list_of_datasets, file.path(output, "Japan - Todarodes.xlsx"))      # WRITE EXCEL FILE OF THE COMPLETE WORKBOOK INCLUDING THE SEPERATE DATASHEETS
 
 
 
@@ -425,5 +425,5 @@ list_of_datasets <- list("Table A - Model Parameters" = group.data,
 
 
 # *** MANUALLY ADJUST FILE NAMES ***
-write.xlsx(indices.agg, file = "Japan - Todarodes_indices_agg.xlsx")           # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN AGGREGATED MODEL
-write.xlsx(list_of_datasets, file = "Japan - Todarodes_workbook.xlsx")         # WRITE EXCEL FILE OF THE COMPLETE WORKBOOK INCLUDING THE SEPERATE DATASHEETS
+write.xlsx(indices.agg, file.path(output, "Japan - Todarodes_indices_agg.xlsx"))  # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN AGGREGATED MODEL
+write.xlsx(list_of_datasets, file.path(output, "Japan - Todarodes_workbook.xlsx"))  # WRITE EXCEL FILE OF THE COMPLETE WORKBOOK INCLUDING THE SEPERATE DATASHEETS
