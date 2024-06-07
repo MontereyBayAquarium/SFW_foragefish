@@ -30,11 +30,12 @@ The data/raw folder of .xlsx files and two .R scripts are needed to replicate th
 
 The folder contains two types of .xlsx files:
 
-`diet.xlsx` -- diet matrix data file with all species used in the project
+`diet.xlsx` -- diet matrix data files for each geography with all species included in the project
 
-`groupdata.xlsx` -- data file containing all species groups used in the project (rows) 
+`groupdata.xlsx` -- data files for each geography containing all species groups used in the project (rows) 
 and the following information for each: B, QB, ED, ED source, group name and group code (columns)
 
-`index_calculations.R` -- R code to calculate connectance, SURF mass and SURF energy indices
+To run the analyses and create output .xlsx files, run the two R scripts in this order:
 `group.aggregating.fxn.R` -- R code to create function to aggregate groups in diet matrices to calculate keyness at a coarser taxonomic resolution
+`index_calculations.R` -- R code to calculate connectance, SURF mass and SURF energy indices
 
