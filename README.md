@@ -29,6 +29,7 @@ This repository includes data and analysis scripts for the white paper:
 The data/raw folder of .xlsx files and two .R scripts are needed to replicate these analyses.
 
 The folder contains two types of .xlsx files:
+
 `diet.xlsx` -- diet matrix data file with all species used in the project
 
 `groupdata.xlsx` -- data file containing all species groups used in the project (rows) 
