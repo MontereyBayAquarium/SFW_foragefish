@@ -28,12 +28,14 @@ linkages within an ecosystem’s food web. This is done by calculating three pub
 ## In the repository:
 The data/raw folder of .xlsx files is needed to replicate these analyses.
 
-The folder contains two types of .xlsx files:
-`diet.xlsx` -- diet matrix data file with all species used in the project
+The data/raw folder contains two types of .xlsx files:
 
-`groupdata.xlsx` -- data file containing all species groups used in the project (rows) 
+`diet.xlsx` -- diet matrix data files for each geography with all species included in the project
+
+`groupdata.xlsx` -- data files for each geography containing all species groups used in the project (rows) 
 and the following information for each: B, QB, ED, ED source, group name and group code (columns)
 
+<<<<<<< HEAD
 Two .R scripts are needed to replicate these analyses. 
 `index_calculations.R` -- R code to calculate connectance, SURF mass and SURF energy indices
 `group.aggregating.fxn.R` -- R code to create function to aggregate groups in diet matrices to calculate keyness at a coarser taxonomic resolution
@@ -47,4 +49,11 @@ in the data/raw folder. If you are interested in performing calculations for onl
 one geography, the code can be edited by defining your geography of interest as a
 numerical value (geog=# instead of code line 35) and running the code without the
 outermost for loop. 
+=======
+To run the analyses and create output .xlsx files, run the two R scripts in this order:
+
+`group.aggregating.fxn.R` -- R code to create function to aggregate groups in diet matrices to calculate keyness at a coarser taxonomic resolution
+
+`index_calculations.R` -- R code to calculate connectance, SURF mass and SURF energy indices
+>>>>>>> f32896a5d2cad4bc1e6e2c2f709455695df47b67
 
