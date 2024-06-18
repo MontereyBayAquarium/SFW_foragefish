@@ -10,6 +10,8 @@ library(plyr)
 library(here)
 library(stringr)
 
+options(scipen=999)                                                            # PREVENT R FROM USING SCIENTIFIC NOTATION
+
 #======= IMPORT DATA ==========================================================
 
 # SET DIRECTORIES AND LOAD DATA
@@ -155,9 +157,9 @@ colnames(energy)<-'SURF energy'
 colnames(KEYenergy)<-'KEYSURF energy' 
 
 # PASTE ALL COLUMNS WITH DATA INTO ONE DATA FRAME
-indices<-data.frame(group.names,round(connectance,4),KEYconnectance,round(SURF,4),KEYSURF, round(energy,4),KEYenergy)   
-worksheetmass<-data.frame(group.names,S,S2,sumpij,round(connectance,4),KEYconnectance,round(SURF,4),KEYSURF,p)
-worksheetenergy<-data.frame(group.names,ES,esumpij,round(energy,4),KEYenergy,pE)
+indices<-data.frame(group.names,round(connectance,10),KEYconnectance,round(SURF,10),KEYSURF, round(energy,10),KEYenergy)   
+worksheetmass<-data.frame(group.names,S,S2,sumpij,round(connectance,10),KEYconnectance,round(SURF,10),KEYSURF,p)
+worksheetenergy<-data.frame(group.names,ES,esumpij,round(energy,10),KEYenergy,pE)
 
 # CREATE LIST OF DATA FOR SEPERATE EXCEL DATASHEETS
 list_of_datasets <- list("Table A - Model Parameters" = group.data, 
@@ -178,6 +180,7 @@ write.xlsx(list_of_datasets, file.path(output, paste0(geography, ".xlsx")))    #
 
 group.data$QBE<-(t(ECTOT[1,]/group.data$B))                                    # ADD A VECTOR TO THE GROUP DATA FOR THE ENERGY CONSUMPTION/BIOMASS (QBE) CALCULATED BY DIVIDING THE TOTAL ENERGY CONSUMPTION PER GROUP (CALCULATE AT LINES 40-45) BY ITS BIOMASS  
 QBE<-group.data$QBE                                                            # EXTRACT THESE DATA AS SEPERATE VECTOR
+QBE[is.na(QBE)] <- 0                                                           # CONVERT NA VALUES TO ZEROS
 
 #======= STEP 4.2.2. DEFINE GROUPS TO AGGREGATE ===============================
 
@@ -233,7 +236,7 @@ for(r in 1:n.groups.2.combine){                                                #
   new.groupname<-combine.group.names[r]                                        # ASSIGN NEW GROUPNAME r FROM LIST CREATED IN LINE 223
   
   agg.model=aggregate.groups(combine.groups,
-                             new.groupname,C,EC,B,QB,QBE,p,pE,group.names)     # RUN FUNCTION 'AGGREGATE.GROUPS' PER ABOVE TO CREATE DATA FOR AGGREGATED MODEL
+                             new.groupname,C,EC,B,QB,QBE,p,pE,group.names)     # RUN FUNCTION 'AGGREGATE.GROUPS' PER 'group_aggregating_fxn.R' TO CREATE DATA FOR AGGREGATED MODEL
   
   B=agg.model$B                                                                # EXTRACT BIOMASS (B) VALUES FROM AGGREGATED MODEL
   QB=agg.model$QB                                                              # EXTRACT CONSUMPTION/BIOMASS (QB) VALUES FROM AGGREGATED MODEL
@@ -345,9 +348,9 @@ colnames(energy)<-'SURF energy'
 colnames(KEYenergy)<-'KEYSURF energy'
 
 # PASTE ALL COLUMNS WITH DATA INTO ONE DATA FRAME
-indices.agg<-data.frame(group.names,round(connectance,4),KEYconnectance,round(SURF,4),KEYSURF, round(energy,4),KEYenergy)   
-worksheetmassagg<-data.frame(group.names,S,S2,sumpij,round(connectance,4),KEYconnectance,round(SURF,4),KEYSURF,p)
-worksheetenergyagg<-data.frame(group.names,ES,esumpij,round(energy,4),KEYenergy,pE)
+indices.agg<-data.frame(group.names,round(connectance,10),KEYconnectance,round(SURF,10),KEYSURF, round(energy,10),KEYenergy)   
+worksheetmassagg<-data.frame(group.names,S,S2,sumpij,round(connectance,10),KEYconnectance,round(SURF,10),KEYSURF,p)
+worksheetenergyagg<-data.frame(group.names,ES,esumpij,round(energy,10),KEYenergy,pE)
 list_of_datasets <- list("Table A - Model Parameters" = group.data, 
                          "Table B - Diet Mass" = worksheetmass, 
                          "Table C - Diet Energy" = worksheetenergy, 
