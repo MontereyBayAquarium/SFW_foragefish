@@ -166,7 +166,7 @@ list_of_datasets <- list("Table A - Model Parameters" = group.data,
                          "Table B - Diet Mass" = worksheetmass, 
                          "Table C - Diet Energy" = worksheetenergy)
 
-# *** MANUALLY ADJUST FILE NAMES ***
+# *** WRITE OUTPUT FILES ***
 write.xlsx(indices, file.path(output, paste0(geography, "_indices.xlsx")))     # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN DISAGGREGATED MODEL
 write.xlsx(list_of_datasets, file.path(output, paste0(geography, ".xlsx")))    # WRITE EXCEL FILE OF THE COMPLETE WORKBOOK INCLUDING THE SEPERATE DATASHEETS
 
@@ -256,7 +256,7 @@ aggregate.groups<-function(combine.groups,new.groupname,C,EC,B,QB,QBE,p,pE,group
   Agg.model=list(B=B.new,QB=QB.new,QBE=QBE.new,group.names=group.names.new,p=p.new,pE=pE.new)                 # CREATE A LIST OF THE FUNCTION'S OUTCOMES WITH THE PARAMETERS YOU WANT TO BE PRODUCED 
 }
 
-#======= STEP 4.2.2. DEFINE GROUPS TO AGGREGATE ===============================
+#======= STEP 4.2.3. DEFINE GROUPS TO AGGREGATE ===============================
 
 obs1<-length(group.data$agg.group.name)                                        # SET LENGTH FOR FOLLOWING LOOP TO NUMBER OF GROUP NAMES (INCLUDING DOUBLES)
 combine.group.names.all<-vector("character")                                   # CREATE NEW VECTOR FOR LIST OF NEW NAMES OF GROUPS THAT NEED TO BE AGGREGATED
@@ -296,7 +296,7 @@ for (q in 1:n.groups.2.combine){                                               #
 }
 
 
-#=== STEP 4.2.3. AGGREGATE GROUPS AND CREATE PARAMETERS AND DIET MATRICES =====
+#=== STEP 4.2.4. AGGREGATE GROUPS AND CREATE PARAMETERS AND DIET MATRICES =====
 
 for(r in 1:n.groups.2.combine){                                                # RUN A LOOP WITH NUMBER OF RUNS (r) EQUAL TO # OF AGGREGATED GROUPS
   combine.groups.names<-aggregated.group.list[[r]]                             # DETERMINE THE NAMES OF GROUPS TO BE AGGREGATED TO CREATE AGGREGATED GROUP r
@@ -341,7 +341,7 @@ for(r in 1:n.groups.2.combine){                                                #
 #         CALCULATE THE 3 INDICES OF AGGREGATED MODEL
 #==============================================================================
 
-#======= STEP 4.2.4. COUNT TROPHIC LINKAGES FOR ALL GROUPS ====================
+#======= STEP 4.2.5. COUNT TROPHIC LINKAGES FOR ALL GROUPS ====================
 
 S<-vector(mode='numeric')                                                      # CREATE EMPTY VECTOR FOR S (# OF TROPHIC LINKAGES IN MASS DIET MATRIX FOR A GROUP AS PREY WITH OTHER GROUPS AS PREDATORS)
 S2<-vector(mode='numeric')                                                     # CREATE EMPTY VECTOR FOR S2 (TOTAL TROPHIC LINKAGES AS S + # OF TROPHIC LINKAGES IN MASS DIET MATRIX FOR A GROUP AS PREDATOR WITH OTHER GROUP AS PREY)
@@ -366,7 +366,7 @@ for (u in 1:n.groups)                                                          #
 }                                                                              # CLOSE LOOP
 
 
-#======= STEP 4.2.5. CALCULATE INDICES AND DETERMINE KEYNESS ==================
+#======= STEP 4.2.6. CALCULATE INDICES AND DETERMINE KEYNESS ==================
 
 connectance<-vector(mode='numeric')                                            # CREATE EMPTY VECTOR FOR CONNECTANCE INDEX VALUE
 KEYconnectance<-vector(mode='numeric')                                         # CREATE EMPTY VECTOR FOR POTENTIAL DETERMINATION OF A KEY GROUP BY CONNECTANCE INDEX 
@@ -431,7 +431,7 @@ list_of_datasets <- list("Table A - Model Parameters" = group.data,
                          "Table D - Diet Mass Agg" = worksheetmassagg, 
                          "Table E - Diet Energy Agg" = worksheetenergyagg)     # CREATE LIST OF DATA FOR SEPERATE EXCEL DATASHEETS
 
-# *** MANUALLY ADJUST FILE NAMES ***
+# *** WRITE OUTPUT FILES ***
 write.xlsx(indices.agg, 
            file.path(output, paste0(geography, "_indices_agg.xlsx")))          # WRITE EXCEL FILE WITH THE THREE INDICES VALUES FOR ALL FUNCTIONAL GROUPS IN AGGREGATED MODEL
 write.xlsx(list_of_datasets, 
