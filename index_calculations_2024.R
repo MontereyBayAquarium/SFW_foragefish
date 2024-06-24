@@ -1,4 +1,18 @@
 
+# Authors: Marjoleine M.H. Roos (marjoleineroos@gmail.com) & Tim E. Essington
+
+# connectance index calculations are based on Smith, A. D., C. J. Brown, 
+#      C. M. Bulman, E. A. Fulton, P. Johnson, I. C. Kaplan, H. Lozano-Montes, 
+#      S. Mackinson, M. Marzloff, and L. J. Shannon. 2011. Impacts of fishing 
+#      low–trophic level species on marine ecosystems. Science 333(6046):1147-1150 
+# mass SURF index calculations are based on Plagányi, É. E., and T. E. Essington. 
+#      2014. When the SURFs up, forage fish are key. Fisheries Research 159:68-74.
+#      doi: 10.1016/j.fishres.2014.05.011
+# energy SURF index calculations are based on Surma, S., E. A. Pakhomov, and T. 
+#      J. Pitcher. 2022. Pacific herring (Clupea pallasii) as a key forage fish 
+#      in the southeastern Gulf of Alaska. Deep Sea Research Part II: Topical 
+#      Studies in Oceanography 196:105001. doi: 10.1016/j.dsr2.2021.105001
+
 #==============================================================================
 #         CALCULATING THE CONNECTANCE, MASS SURF, AND ENERGY SURF INDEX
 #==============================================================================
@@ -178,9 +192,11 @@ write.xlsx(list_of_datasets, file.path(output, paste0(geography, ".xlsx")))    #
 
 #======= STEP 4.2.1. DEFINE QBE ===============================================
 
+QBE[is.na(QBE)] <- 0 
 group.data$QBE<-(t(ECTOT[1,]/group.data$B))                                    # ADD A VECTOR TO THE GROUP DATA FOR THE ENERGY CONSUMPTION/BIOMASS (QBE) CALCULATED BY DIVIDING THE TOTAL ENERGY CONSUMPTION PER GROUP (CALCULATE AT LINES 40-45) BY ITS BIOMASS  
 QBE<-group.data$QBE                                                            # EXTRACT THESE DATA AS SEPERATE VECTOR
 QBE[is.na(QBE)] <- 0                                                           # CONVERT NA VALUES TO ZEROS
+
 
 #======= STEP 4.2.2. DEFINE GROUPS TO AGGREGATE ===============================
 
