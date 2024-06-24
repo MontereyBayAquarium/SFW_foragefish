@@ -185,7 +185,7 @@ QBE[is.na(QBE)] <- 0                                                           #
 #======= STEP 4.2.2. CREATE FUNCTION FOR AGGREGATING GROUPS IN DIET MATRICES ================================
 
 
-aggregate.groups<-function(combine.groups,new.groupname,C,EC,B,QB,QBE,p,pE,group.names) {                     # CREATE FUNTION THAT USES THE ASSIGNED PARAMETERS, SOME ARE BEING GENERATED IN LINES BELOW: COMBINE.GROUPS -> 264 AND NEW.GROUPNAME -> 270
+aggregate.groups<-function(combine.groups,new.groupname,C,EC,B,QB,QBE,p,pE,group.names) {                     # CREATE FUNTION THAT USES THE ASSIGNED PARAMETERS, SOME ARE BEING GENERATED IN LINES BELOW: COMBINE.GROUPS -> 274 AND NEW.GROUPNAME -> 280
   
   ngroups=length(B)                                                                                           # DETERMINE NUMBER OF GROUPS FROM NUMBER OF BIOMASSES
   

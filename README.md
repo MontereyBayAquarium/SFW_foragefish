@@ -43,5 +43,5 @@ One .R script is needed to replicate these analyses.
 ## Instructions:
 1. Run the `index_calculations.R` to perform all calculations and output data files.
 
-This will perform calculations for every geography represented by .xlsx data files  in the data/raw folder. If you are interested in performing calculations for only one geography, the code can be edited by defining your geography of interest as a numerical value (geog=# instead of code line 35) and running the code without the outermost for loop. 
+This will perform calculations for every geography represented by .xlsx data files  in the data/raw folder. If you are interested in performing calculations for only one geography, the code can be edited by defining your geography of interest as a numerical value (geog=# instead of code line 34) and running the code without the outermost for loop. 
 
