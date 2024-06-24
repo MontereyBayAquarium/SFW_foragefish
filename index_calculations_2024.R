@@ -28,9 +28,8 @@ names(groupdata.list) = str_match(groupdatafiles, "groupdata_\\s*(.*?)\\s*.xlsx"
 
 rm(dietfiles, groupdatafiles)
 
-#==============================================================================
-#       SET UP FOR LOOP TO RUN ALL GEOGRAPHIES
-#==============================================================================
+
+#=============SET UP FOR LOOP TO RUN ALL GEOGRAPHIES===========================
 
 for (geog in 1:length(diet.list)) {
 diet.mat <- as.data.frame(diet.list[[geog]], col.names=names(x))               # IMPORT AND CREATE DATA FRAME FROM DIET MATRIX
