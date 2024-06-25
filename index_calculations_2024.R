@@ -35,7 +35,7 @@ for (geog in 1:length(diet.list)) {
 diet.mat <- as.data.frame(diet.list[[geog]], col.names=names(x))               # IMPORT AND CREATE DATA FRAME FROM DIET MATRIX
 group.data <- as.data.frame(groupdata.list[[geog]], col.names=names(x))        # IMPORT AND CREATE TABLE FROM GROUP PARAMETERS AS USED IN THE ECOPATH MODEL (FUNCTIONAL GROUP NAMES, BIOMASS (B), AND CONSUMPTION/BIOMASS (QB)) IN COMBINATION WITH DIET DATA
 n.groups=dim(group.data)[1]                                                    # SET NUMBER OF GROUPS
-geography=names(diet.list[geog])                                               # SET GEOGRAPHY NAME
+geography=names(diet.list[geog])                                               # SET GEOGRAPHY NAME FOR NAMING OUTPUT FILES
 
 #==============================================================================
 #        STEP 4.1. DISAGGREGATED MODEL                                                                         
