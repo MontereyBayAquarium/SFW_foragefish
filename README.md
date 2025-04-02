@@ -5,7 +5,7 @@
 
 This repository includes data and analysis scripts for the white paper:
 
-**Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium Seafood Watch.** [ADD URL ONCE AVAILABLE]
+**Roos, Marjoleine, M.H. (2024). Forage species: Who is key? Monterey Bay Aquarium Seafood Watch.** https://www.seafoodwatch.org/globalassets/sfw/pdf/projects/fisheries-science/seafood-watch-seafood-sustainability-series-vol-04.pdf
 
 ---
 ## Code authors:
